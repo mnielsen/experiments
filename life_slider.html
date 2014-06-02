@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <style>
+      div {
+        margin: 0;
+        padding: 0;
+      }
+
+      #grid {
+        position: absolute;
+        top: 80px;
+        left: 40px;
+      }
+
+      #blank {
+        position: absolute;
+        top: 80px;
+        left: 600px;
+      }
+
+      #glider {
+        position: absolute;
+        top: 120px;
+        left: 600px;
+      }
+
+      
+      #slider {
+        position: absolute;
+        top: 170px;
+        left: 600px;
+        width: 200px;
+      }
+
+      #percentage_text {
+        position: absolute;
+        top: 200px;
+        left: 600px;
+      }
+      
+      #percentage {
+        border: 0;
+        width: 1em;
+        font-family: Tacoma, Geneva, san-serif;
+        font-size: 12pt;
+      }
+
+      #start {
+        position: absolute; 
+        top: 240px; 
+        left: 600px;
+      }
+      
+      #stop {
+        position: absolute;
+        top: 80px;
+        left: 600px;
+        display: none; // starts out hidden
+      }
+
+    </style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" 
+      href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+</head>
+
+<body>
+
+<div id="header">
+<h1>Game of Life, with slider to initialize</h1>
+</div>
+
+<div id="grid"></div>
+<script src="life_slider.js"></script>
+
+<input id="blank" type="submit" value="Blank grid">
+
+<input id="glider" type="submit" value="Glider">
+
+<div id="slider"></div>
+
+<div id="percentage_text">
+<input id="percentage"> % of cells start out alive
+</div>
+
+<input id="start" type="submit" value="Start the Game of Life ">
+
+<input id="stop" type="submit" value="Stop the Game of Life ">
+
+</body>
+<html>

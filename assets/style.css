@@ -1,0 +1,49 @@
+/* COLOURS                                                           */
+/*                                                                   */
+/* #1C3950: header and h1 background                                 */
+/* HSV: 207, 65, 31                                                  */
+/* Decimal RGB: 28, 57, 80                                           */
+/*                                                                   */
+/* #2A6EA6; link colour                                              */
+/* HSV: 207, 75, 65                                                  */
+/* Decimal RGB: 42, 110, 166                                         */
+/*                                                                   */
+/* #FFA933: complement to #2A6EA6                                    */
+/*                                                                   */
+/* Triad: #2A6EA6, #FFCD33, #FF7033                                  */
+/*                                                                   */
+/* #eee: header text                                                 */
+
+.colora {
+    color: #2A6EA6;
+    background-color: #2A6EA6;
+}
+
+body {
+    margin: 0px;
+    line-height: 1.7;
+    font-size: 12pt;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+#header {
+    margin: 0px;
+    background-color: #1C3950;
+    height: 60px;
+}
+
+h1 {
+    position: absolute;
+    margin: 0px;
+    left: 40px;
+    color: #eee;
+}
+
+a { 
+    color: #2A6EA6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
