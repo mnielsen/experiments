@@ -14,11 +14,6 @@
 /*                                                                   */
 /* #eee: header text                                                 */
 
-.colora {
-    color: #2A6EA6;
-    background-color: #2A6EA6;
-}
-
 body {
     margin: 0px;
     line-height: 1.7;
@@ -46,4 +41,8 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+#container {
+    margin: 40px;
 }
