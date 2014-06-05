@@ -45,4 +45,16 @@ a:hover {
 
 #container {
     margin-left: 40px;
+    width: 800px;
+}
+
+.image_snippet {
+    float: left; 
+    margin-right: 10pt;
+    padding-bottom: 20px;
+}
+
+p {
+    clear: both;
+    padding-top: 5px;
 }

@@ -14,26 +14,61 @@
 <div id="container">
 
 <p>
-  This repository contains some simple learning experiments with HTML,
-  CSS, Javascript, D3, jQuery, and other libraries.  Experiments are
-  in reverse chronological order.
+  This repository contains some simple experiments I've used to help
+  teach myself HTML, CSS, Javascript, D3, jQuery, and other libraries.
+  Experiments are in reverse chronological order.
 </p>
 
-<ol reversed>
+<p>
+<a href="5/index.html"><strong><img src="5/mandelbrot_snippet.JPG"
+class="image_snippet">5. Mandelbrot set:</a></strong> Plotted using
+D3.  Plots roughly 90,000 points, each one requiring some little
+effort.  The points are then rendered as SVG rectangles.
+Unsurprisingly, it's quite memory- and CPU-intensive, and will take a
+few seconds to load.  Despite this, I found myself impressed by how
+quickly 2014 browsers work.  Note that reloading the process will eat
+up memory, so beware.  Note also that the rendering can be streaky,
+due to non-overlap of SVG rectangles.  I've chosen the dimensions so
+this doesn't happen, at least in my browser, but it's easy to alter
+the dimensions so that's not true.  The cause is an architectural
+mistake on my part: my program computes the function in the underlying
+mathematical space &mdash; i.e., the "natural" co-ordinates used to
+explain the Mandelbrot set &mdash; and then transforms to screen
+co-ordinates.  It would have been better to start from screen co-ords,
+transform to the mathematical space, compute the function, and
+transform back. That would make it easier to fit the rectangles snugly
+up against one another.  This is worth keeping in mind for any D3
+visualization whose aim is to output shapes which fit snugly up
+against one another.  For most visualizations it shouldn't be an
+issue.
+</p>
 
-<li><a href="4/fpe.html">First-person engine</a>.  I worked through
+<p>
+<a href="4/fpe.html"><strong><img class="image_snippet" width="130px"
+height="90px" src="4/fpe_snippet.JPG">4. First-person
+engine:</strong></a> I worked through
 <a href="http://www.playfuljs.com/a-first-person-engine-in-265-lines/">Hunter
 Loftis's great tutorial</a>.  The credit is his, apart from any
 mistakes I've introduced!
+</p>
 
-<li><a href="calculator.html">Calculator</a>.  Handles simple
-calculations, not well tested, and doesn't handle exceptions properly.
-An exercise in playing with buttons.
+<p><a href="calculator.html"><strong><img class="image_snippet"
+src="calculator_snippet.JPG" width="130px" height="90px" >3.
+Calculator:</strong></a> Handles simple calculations, not well tested,
+and doesn't handle exceptions properly.  An exercise in playing with
+buttons.
+</p>
 
-<li><a href="life_slider.html">Game of Life</a>: uses jQuery and
-jQuery UI to add a slider plus a few other elements.
+<p>
+<strong><a href="life_slider.html"><img class="image_snippet"
+src="life_slider.JPG" width="130px" height="90px">2. Game of
+Life:</a></strong> uses jQuery and jQuery UI to add a slider plus a
+few other elements.
+</p>
 
-<li><a href="life_d3.html">Game of Life</a>, implemented using D3.
+<p><a href="life_d3.html"><strong><img class="image_snippet"
+src="life.JPG" width="130px" height="90px">1. Game of
+Life:</strong></a> implemented using D3.
 
 </ol>
 
