@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example 7: Programmable Game of Life</title>
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <style>
+      #gridCanvas {border: dotted 1px;}
+    </style>
+  </head>
+
+  <body>
+    <div id="header"><h1>Programmable Game of Life</h1></div>
+
+    <div id="container">
+
+      <p>
+	Click within the border below to set or unset a cell.
+      </p>
+      <p>
+	<input id="start" type="submit" value="Start the Game of Life ">
+
+	<input id="stop" type="submit" style="display: none" value="Stop the Game of Life ">
+      </p>
+
+      <p>
+	<canvas id="gridCanvas" width="600" height="600">Sorry, your
+	  browser doesn't support the canvas element.  If it did,
+	  you'd be able to set and unset cells within a grid for the
+	  Game of Life here.
+	</canvas>
+
+
+      </p>
+
+
+    </div>
+
+  </body>
+
+  <script src="../assets/jquery-2.1.1.min.js"></script>
+  <script src="programmable_life.js"></script>
+</html>
