@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example 6: Clickable chessboard</title>
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <style>
+      canvas#board {
+        border: dotted 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header"><h1>Clickable chessboard</h1></div>
+
+    <div id="container">
+      <p>
+	Click on the board to change the colour of a square.
+      </p>
+
+      <p>
+	<canvas id="board" width="256" height="256">Sorry, your browser
+	  doesn't support the canvas element.  If it did, a chessboard would
+	  be shown here!
+	</canvas>
+      </p>
+    </div>
+
+  </body>
+
+  <script src="../assets/jquery-2.1.1.min.js"></script>
+  <script src="chessboard.js"></script>
+</html>
