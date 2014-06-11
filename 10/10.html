@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <style>
+      .equation {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        font-size: 24px;
+      }
+      .number {
+        padding-left: 3px;
+        border-radius: 5px;
+      }
+      .icon {
+        position: relative;
+        top: -6px;
+        left: -2px;
+        background: white;
+        display: none;
+        border: solid 1px #888;
+      }
+      </style>
+
+    <script src="../assets/jquery-2.1.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="header"><h1>Experimenting with scrubbable numbers</h1></div>
+
+    <div id="container">
+      <div class="equation">
+	<span id="n1" class="number">
+	  <span id="n1Content" style="user-select: none;"></span>
+	  <canvas id="n1LineIcon" width=10 height=10 class="icon"></canvas>
+	  <canvas id="n1ExponentialIcon" width=10 height=10 class="icon"></canvas>
+	</span> 
+	+ 
+	<span id="n2" class="number">
+	  <span id="n2Content" style="user-select: none;"></span>
+	  <canvas id="n2LineIcon" width=10 height=10 class="icon"></canvas>
+	  <canvas id="n2ExponentialIcon" width=10 height=10 class="icon"></canvas>
+	</span> 
+      </div>
+    </div>
+
+    <script src="10.js"></script>
+  </body>
+</html>
