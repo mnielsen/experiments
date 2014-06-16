@@ -1,3 +1,34 @@
+// A rather nasty kludge is used: setInterval is used to update the
+// answer.  Ideally we'd do proper data binding, perhaps using a
+// framework such as backbone or angular, but I haven't done that.
+
+$(function() {
+    initScrubbableNumbers();
+    setInterval(updateAnswer, 10); 
+});
+
+function updateAnswer() {
+    var answer = parseInt($("#n1ChildContent")[0].textContent)+
+	parseInt($("#n2ChildContent")[0].textContent);
+    $("#answer")[0].textContent = answer.toString();
+}
+
+function initScrubbableNumbers() {
+    var htmlElement = document.registerElement('scrubbable-number');
+    $("scrubbable-number").each(function() {
+	var childId = this.id+"Child";
+	var n = parseInt(this.textContent);
+	this.textContent = "";
+	var html = "<span id='"+childId+"' class='number'>";
+	html += "<span id='"+childId+"Content' style='user-select: none;'>"+n.toString()+"</span>";
+	html += "<canvas id='"+childId+"LineIcon' width=10 height=10 class='icon'></canvas>";
+	html += "<canvas id='"+childId+"ExponentialIcon' width=10 height=10 class='icon'></canvas>";
+	html += "</span>";
+	$("#"+this.id).append(html);
+	new scrubbableNumber(n, "#"+childId);
+    });
+}
+
 function scrubbableNumber(n, id) {
     this.n = n;
     this.number = $(id);
@@ -9,20 +40,19 @@ function scrubbableNumber(n, id) {
     this.startX = undefined;
 
 
-    
     this.content.text(format(this.n));
     drawLineIcon(this.lineIcon);
     drawExponentialIcon(this.exponentialIcon);
 
-    this.number.mouseover(function() {
+    this.number.mouseenter(function() {
 	this.number.css("backgroundColor", "#ddd");
-	this.lineIcon.show();
-	this.exponentialIcon.show();
+	this.lineIcon.show(200);
+	this.exponentialIcon.show(200);
     }.bind(this));
-    this.number.mouseout(function() {
+    this.number.mouseleave(function() {
 	if (!this.linearSelected && !this.exponentialSelected) {
-	    this.lineIcon.hide();
-	    this.exponentialIcon.hide();
+	    this.exponentialIcon.hide(200);
+	    this.lineIcon.hide(200);
 	    this.number.css("backgroundColor", "white");
 	}
     }.bind(this));
@@ -40,7 +70,7 @@ function scrubbableNumber(n, id) {
 scrubbableNumber.prototype.createIconEvents = function(icon, rescaling) {
     icon.mouseover(function() {
 	icon.css("border", "solid 1px red"); 
-    } )
+    });
     icon.mouseout(function() {
 	if (!icon.selectionFlag) {
 	    icon.css("border", "solid 1px #888");
@@ -68,8 +98,8 @@ scrubbableNumber.prototype.createIconEvents = function(icon, rescaling) {
 	    icon.css("border", "solid 1px #888");
 	    if (this.futureContract) {
 		this.futureContract = false;
-		this.exponentialIcon.hide();
-		this.lineIcon.hide();
+		this.exponentialIcon.hide(200);
+		this.lineIcon.hide(200);
 		this.number.css("backgroundColor", "white");
 	    };
 	};
@@ -84,10 +114,7 @@ scrubbableNumber.prototype.exponentialIconScaling = function(n, delta) {
     return Math.round(n*Math.pow(1.1, Math.round(delta/3)));
 }
 
-$(function() {
-    var n1 = new scrubbableNumber(21, "#n1");
-    var n2 = new scrubbableNumber(47, "#n2");
-});
+
 
 function format(n) {
     return Math.round(n).toString();
@@ -124,3 +151,4 @@ function drawExponentialIcon(exponentialIcon) {
     context.strokeStyle = "#2a6ea6";
     context.stroke();
 }
+

@@ -12,16 +12,20 @@
         font-size: 24px;
       }
       .number {
-        padding-left: 3px;
         border-radius: 5px;
+        padding: 2px;
       }
       .icon {
         position: relative;
         top: -6px;
-        left: -2px;
+        margin-left: 1px;
+        margin-right: 3px;
         background: white;
         display: none;
         border: solid 1px #888;
+      }
+      #answer {
+        color: red;
       }
       </style>
 
@@ -32,19 +36,59 @@
     <div id="header"><h1>Experimenting with scrubbable numbers</h1></div>
 
     <div id="container">
+
+      <p><a href="../index.html">Index</a></p>
+
+      <p>This is an experiment inspired by Bret
+      Victor's <a href="http://worrydream.com/ScrubbingCalculator/">scrubbing
+      calculator</a>.  At the end of his essay, Victor poses the
+      following exercise:</p>
+
+      <blockquote>
+	<strong>Granularity.</strong> Some numbers need to be adjusted
+	over large ranges &mdash; you may want to go thousands in one
+	stroke. Other numbers might need multiple decimal-point
+	precision. The tool can't necessarily infer which is
+	which. Can you think of a UI that could accomodate adjustments
+	at different levels of granularity?
+      </blockquote>
+
+      <p>I've tried a few different approaches to this exercise.  This
+      document demonstrates one of them.  Mouseover the numbers on the
+      left of the equation below, click on one of the revealed icons,
+      and adjust the number. </p>
+
       <div class="equation">
-	<span id="n1" class="number">
-	  <span id="n1Content" style="user-select: none;"></span>
-	  <canvas id="n1LineIcon" width=10 height=10 class="icon"></canvas>
-	  <canvas id="n1ExponentialIcon" width=10 height=10 class="icon"></canvas>
-	</span> 
-	+ 
-	<span id="n2" class="number">
-	  <span id="n2Content" style="user-select: none;"></span>
-	  <canvas id="n2LineIcon" width=10 height=10 class="icon"></canvas>
-	  <canvas id="n2ExponentialIcon" width=10 height=10 class="icon"></canvas>
-	</span> 
+	<scrubbable-number id="n1">21</scrubbable-number> +
+	<scrubbable-number id="n2">47</scrubbable-number> =
+	<span id="answer">68</span>
       </div>
+
+      <p>
+	You can see that this gives us more flexibility than the
+	original scrubbable numbers, because we have the ability to
+	adjust numbers both linearly and exponentially.  There are
+	several relatively minor problems with look-and-feel, but
+	those are relatively easy to resolve.  However, there's one
+	really serious problem, which is that this approach severely
+	limits the class of numbers you can reach.  To see the
+	problem, suppose you use the exponential slider to increase a
+	number out to (say) 1 billion.  Then each additional pixel
+	with the slider moves you by an amount of about 100 million.
+	Within that 100 million you simply can't use the linear slider
+	to adjust over the entire range.  And so there's lots of
+	numbers which are to all intents and purpose inaccessible.
+      </P>
+
+      <p>
+	I'm somewhat embarassed to say that I didn't anticipate this
+	problem in advance.  In a way, that's encouring: this new
+	representation made a problem <em>obvious</em> which I didn't
+	see at all, initially.  I can also see a solution, but I'll
+	put that elsewhere, in some extended notes I'm writing
+	about <em>Kill Math</em>.
+      </p>
+
     </div>
 
     <script src="10.js"></script>
